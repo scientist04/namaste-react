@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React hahaha</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- printing hello world using plain HTML  -->
+    <div id="root">
+        <h1>Ashish is here!!</h1> 
+        <!-- this h1 tag is replaced by root element by render function present in App.js -->
+    </div>
+
+    <!-- printing hello world using Java Script r -->
+    <!-- <script>
+        const heading = document.createElement("h1");
+        heading.innerHTML = "Hellow World in JavaScript!!";
+
+        const root1 = document.getElementById("root");
+        root1.appendChild(heading);
+    </script> -->
+
+    <script 
+        crossorigin
+        src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script 
+        crossorigin 
+        src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <!-- printing hello world using React  -->
+    <!-- <script>
+        const heading = React.createElement("h1", {}, "Hello World from react!!");
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        rrot.render(heading);
+    </script> -->
+
+    <script src="./App.js"></script>
+
+</body>
+</html>
