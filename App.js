@@ -1,47 +1,71 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 
+
+
+//React.createElement => gives a ReactElement => creates an JS Object => when we render to DOM then it becomes HTML element
 // const heading = React.createElement(
-//     "h1", 
-//     {id:"heading", xyz:"abc"},    //attributes
-//     "Hellow World from React!"
+//     "h1",
+//     {id: "heading"}, 
+//     "Namaste React 🚀"
 // );
-
-// console.log(heading);  //returns object
-
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-
-// root.render(heading);
+// console.log(heading)
 
 
 
+//JSX - makes developers life easy
+//JSX (transpiled before it reaches the JS engine) => PARCEL => BABEL(converts the JSX code to React Code that browser understands)
+//JSX code => Babel transpiles it to React.createElement converts to => JS Object converts to => HTML element with the help to render function 
+//React Element
+const heading = (
+  <h1 className="head" tabIndex="5">"Namaste React using JSX 🚀"</h1>
+); 
+console.log(heading);
+
+//React Element
+const elem = (
+    <div>
+      {heading}
+      <span>React Element</span>
+    </div>
+);
 
 
-/*
+//React Component - 2 types
+//1. class-based components -> OLD way of writing components -> today no one writes class-based component 
+//2. functional component -> NEW way of writing components
 
-<div id="parent">
-   <div id="child1">
-      <h1>I'm an h1 tag</h1>
-      <h2>I'm an h2 tag</h2>
-   </div>
-   <div id="child2">
-      <h1>I'm an h1 tag</h1>
-      <h2>I'm an h2 tag</h2>
-   </div>
-</div>     
 
-*/
+//React Functional Component
+const ReactComponent1 = () => {
+    return <h1>React Functional Component using curly brackets, here we need to write return keyword</h1>
+}
 
-const heading = React.createElement("div", {id:"parent"}, 
-        [React.createElement("div", {id:"child1"},
-           [React.createElement("h1", {}, "I'm an h1 tag"), React.createElement("h2", {}, "I'm an h2 tag")]),
-           React.createElement("div", {id:"child2"},
-           [React.createElement("h1", {}, "I'm an h1 tag"), React.createElement("h2", {}, "I'm an h2 tag")])]
-           )
+const ReactComponent2 = () => (
+    <h1>React Functional Component using round brackets, here we not have to write return keyword</h1>
+)
 
-//to avoid this above complex code we use JSX
-//JSX will make our life easy whwn we have to create tags
+const ReactComponent3 = () => (
+    //nested jsx code
+    <div className="heading ">
+      <h1 className="heading3">nested jsx code in react component</h1>
+    </div>
+)
+
+//component composition -> composing two components into one another
+const ReactComponent4 = () => (
+    <div>
+      {elem}
+      <h1>{1000+100+10+1}</h1>
+      {1+2}
+      <ReactComponent1/>
+      <ReactComponent2/>
+      <ReactComponent3/>
+      <h1>Component Composition</h1>
+    </div>
+)
+
+//we can compose anything inside anything in our react code using curly braces
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(heading);
+root.render(<ReactComponent4/>);  //rendering react component
