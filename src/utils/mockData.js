@@ -1,40 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-/*
-  Header
-    -Logo
-    -NavItems
-  Body
-    -Search
-    -RestaurentContainer
-      -RestaurentCard
-        -Img, Name of res, Star Rating, Cuisine, Delivery Time
-  Footer
-    -Copyright
-    -Links
-    -Address
-    -Contact      
-*/
-
-const Header = () => {
-    return (
-        <div className="header">
-            <div className="logo-container">
-                <img className="logo" src="https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png"/>
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-        </div>
-    );
-};
-
 const restrautList = [
     {
       type: "restaurant",
@@ -155,7 +118,7 @@ const restrautList = [
           iconType: "EMPTY",
         },
         promoted: true,
-        avgRating: "4.0",
+        avgRating: "4.1",
         totalRatings: 5000,
         new: false,
       },
@@ -759,7 +722,7 @@ const restrautList = [
           iconType: "EMPTY",
         },
         promoted: false,
-        avgRating: "--",
+        avgRating: "3.9",
         totalRatings: 0,
         new: false,
       },
@@ -1488,7 +1451,7 @@ const restrautList = [
           iconType: "EMPTY",
         },
         promoted: false,
-        avgRating: "--",
+        avgRating: "3.9",
         totalRatings: 0,
         new: false,
       },
@@ -1852,7 +1815,7 @@ const restrautList = [
           iconType: "EMPTY",
         },
         promoted: false,
-        avgRating: "--",
+        avgRating: "3.9",
         totalRatings: 0,
         new: false,
       },
@@ -1860,60 +1823,4 @@ const restrautList = [
     },
 ];
 
-const RestaurentCard = (props) => {
-
-    const {resData} = props;
-    const {name, cloudinaryImageId, cuisines, costForTwo, deliveryTime, avgRating} = resData.data;
-
-    return (
-        <div className="res-card" style={{backgroundColor: "#f0f0f0"}}>
-            <img 
-              className="res-logo"
-              src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId}
-              alt="res-logo"
-            />
-            <h3>{name}</h3>
-            <h4>{cuisines.join(", ")}</h4>
-            <h4>{avgRating} stars</h4>
-            <h4>₹{costForTwo/100} FOR TWO</h4>
-            <h4>{deliveryTime} mins</h4>
-        </div>
-    );
-};
-
-// no key (not acceptable) <<< index key(last option) <<<<< unquie key (best practice)
-const Body = () => {
-    return (
-        <div className="body">
-            <div className="search">Search</div>
-            <div className="res-container">
-                {
-                    restrautList.map((restaurent) => (
-                        <RestaurentCard key={restaurent.data.id} resData={restaurent} />
-                    ))
-                }
-            </div>
-        </div>
-    );
-};
-
-const Footer = () => {
-    return (
-        <div className="footer">
-            Footer
-        </div>
-    )
-}
-
-const AppLayout = () => {
-    return (
-        <div className="app">
-            <Header/>
-            <Body/>
-            <Footer/>
-        </div>
-    );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout/>);  //rendering react component
+export default restrautList;
